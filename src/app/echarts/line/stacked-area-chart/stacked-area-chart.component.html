@@ -1,0 +1,6 @@
+<div fxLayoutGap="1rem" fxLayout="column">
+
+  <mat-checkbox [(ngModel)]="_isDarkmode" (change)="ngOnInit()">Dark mode</mat-checkbox>
+
+  <div echarts [options]="_echartOption" [theme]="_theme"></div>
+</div>

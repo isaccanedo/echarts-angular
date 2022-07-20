@@ -1,0 +1,43 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Line Echart Demo.
+      </mat-panel-title>
+      <mat-panel-description>
+        Included different types of line echarts.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="column" fxLayoutGap="1rem">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-select [(ngModel)]="selectedEchartsType">
+            <mat-option *ngFor="let echarts of echartsTypeList" [value]="echarts.code">{{ echarts.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+
+        <ng-container [ngSwitch]="selectedEchartsType">
+          <ng-container *ngSwitchCase="'BASIC_LINE_ECHART'">
+            <app-basic-line-echarts></app-basic-line-echarts>
+          </ng-container>
+          <ng-container *ngSwitchCase="'BASIC_AREA_ECHART'">
+            <app-basic-area-echarts></app-basic-area-echarts>
+          </ng-container>
+          <ng-container *ngSwitchCase="'SMOOTHED_LINE_ECHART'">
+            <app-smoothed-line-echarts></app-smoothed-line-echarts>
+          </ng-container>
+          <ng-container *ngSwitchCase="'STACKED_AREA_ECHART'">
+            <app-stacked-area-chart></app-stacked-area-chart>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <h2><span class="badge badge-secondary" style="font-weight: 500;">Please select echart type form dropdown to
+                view your result.</span></h2>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
